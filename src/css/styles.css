@@ -58,6 +58,7 @@
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: #fff;
+  margin-left: 8px;
 }
 .search-button:hover {
 background-color: #6c8cff;
@@ -70,6 +71,7 @@ background-color: #6c8cff;
   display: flex;
   justify-content: center;
   margin-bottom: 32px;
+  padding-top: 36px;
 }
 
 .container input {
