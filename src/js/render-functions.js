@@ -1,9 +1,11 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
+let lightbox;
+
 export function renderImages(images) {
-  const gallery = document.getElementById('gallery');
-  gallery.innerHTML = images.map(image => `
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = images.map(image => `
     <a href="${image.largeImageURL}">
       <img src="${image.webformatURL}" alt="${image.tags}" />
       <div class="info">
@@ -15,12 +17,16 @@ export function renderImages(images) {
     </a>
   `).join('');
   
-    const lightbox = new SimpleLightbox('.gallery a', {
-    captions: true,
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-  lightbox.refresh();
+    if (lightbox) {
+        lightbox.refresh();
+    } else {
+        lightbox = new SimpleLightbox('.gallery a', {
+            captions: true,
+            captionsData: 'alt',
+            captionDelay: 250,
+        });
+        lightbox.refresh();
+    }
 }
 
 export function clearGallery() {

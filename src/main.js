@@ -12,7 +12,8 @@ document.getElementById('search-form').addEventListener('submit', function (even
     return;
   }
 
-  clearGallery();
+    clearGallery();
+    showLoader();
 
   fetchImages(query)
     .then(data => {
